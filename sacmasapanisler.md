@@ -1,5 +1,5 @@
 # hello
 
-![kal](asset/deneme/image.jpg)
+![kal](/assets/deneme/image.jpg)
 
 h.h.h
