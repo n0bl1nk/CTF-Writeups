@@ -17,7 +17,6 @@ Dosya 32 bitlik upx ile sıkıştırılmış olarak gözükmektedir.
 Ardından dosyaları debuglamak için windows ortamina taşıyorum ve analiz başlasın.
 
 Programı çalıştırdığımızda bize bombayı imha edebilmek için anahtar kelimeyi ve gizli numaralari bulmamızı ve aynı zamanda cryptexin şifresini çözmemizi söylüyor. 
-Writeup'ı yazarken farkettim ki CTF sırasında programa parametre vermeden debugladığım için bazı fonksiyonların access_violation'a sebep olduğunu göreceğiz. Bunları çözmek için programı patchleyerek ilerledim. Yazının sonunda talimatlara uygun çözümü göstereceğim ama önce benim ilerlediğim şekilde anlatacağım.
 
 ![CS.exe](../../assets/CounterStrike/3.png)
 
