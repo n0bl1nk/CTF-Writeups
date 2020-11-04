@@ -44,14 +44,13 @@ defauseTheBomb fonksiyonunun içerisinde ilk önce strcat fonksiyonu ile karşı
 
 ![strcat](../../assets/CounterStrike/a.png)
  
- Ardından karşılaştığımız ilk engel strcmp komutuna verilen anormal(\xff'lerden oluşan) uzun girdiden dolayı programın Access_Violation yani kısaca programın erişmek istediği adres alanına erişme izninin olmamasından dolayı kaynaklanmaktadır. Peki programı debug programına atmadan 5 parametre verip başlattığımızda neden access violationa takılmadı? İşte burda farkettim ki programa parametre vermediğimde strcmp'ye giden değer "\xff\xff..." şeklinde baya uzun bir alanı alıyor. Stringlerin sonunda (NULL=\0) işareti bulunduğunda fonksiyon okumaya son verir. Ama burda sonu belli olmayan bir değeri almaktadır. Ama ben bu kısımların tuzak olduğunu düşünüp instruction'u "nop" ile değiştirmek için not aldım.
+ Ardından karşılaştığımız ilk engel strcmp komutuna verilen anormal(\xff'lerden oluşan) uzun girdiden dolayı programın Access_Violation ile karşılaşıyoruz yani kısaca programın erişmek istediği adres alanına erişme izninin olmamasından dolayı kaynaklanmaktadır. Peki programı debug programına atmadan 5 parametre verip başlattığımızda neden access violationa takılmadı? Çünkü programa parametre vermediğimde strcmp'ye giden değer "\xff\xff..." şeklinde baya uzun bir alanı alıyor. Stringlerin sonunda (NULL=\0) işareti bulunduğunda fonksiyon stringi okumaya son verir. Ama burda sonu belli olmayan bir değeri parametre almaktadır. Reverse ile ilk tecrübelerimi yaşadığım için ctf sırasında bunun farkına varmadım. Çünkü programı parametresiz debug ediyordum ve fonksiyonlara resimdeki gibi parametreler gittiğini gördüğümde o kısımların kasıtlı yapıldığını düşünmüştüm. Ve bu şekilde access_violationlar yerken gerçekten bombanın patladığını hayal ediyordum bu yüzden kasıtlı yapıldığı fikrine kapılmıştım *-*. 
 
- ![strcmp](../../assets/CounterStrike/b.png)
+![strcmp](../../assets/CounterStrike/b.png)
 
-  
  Strcmp'yi atlattıktan sonraki adımda bir if statement ile karşılaşıyoruz. Aşağıdaki resimde kırmızıyla işaretlediğim kısımlarda eax registerinin değeri "0" olduğu için test eax,eax yani eax 0 ise "je" instruction ile belirtilen adrese zıplama gerçekleşecektir. 
 
- ![strcmp](../../assets/CounterStrike/c.png)
+![strcmp](../../assets/CounterStrike/c.png)
 
 Zıplama bizi doğru yöne götürdü için müdahale etmeyeceğiz.  
 
@@ -59,13 +58,11 @@ Zıplama bizi doğru yöne götürdü için müdahale etmeyeceğiz.
 
 ![strcmp](../../assets/CounterStrike/d.png)
 
-Bulunduğumuz yerdeki atoi fonksiyonu strcmp'deki aynı sebepten dolayı "access_violationa" sebep oluyordu. CTF'i çözerken gerçekten bombalar patlıyordu benim açımdan. 
-
-
+Bulunduğumuz yerdeki atoi fonksiyonu strcmp'deki aynı sebepten dolayı "access_violationa" sebep oluyordu. 
 
 ![strcmp](../../assets/CounterStrike/e.png)
 
 
-  Bu durumdada BoMba patlar ve Terorist Win alır ama CT olarak defuse-kit aldığım için bu tür tuzaklara düşmeden bombayı çözmem lazım küme düşemem!!1!.
+  
 
 
