@@ -28,6 +28,6 @@ Resimlere exif ile baktığımızda ilginç birşey görmüyoruz.
 
 İçerisindeki jpeg'i çıkartıyoruz.
 
-![Soru](../../assets/Lupin/3.png)
+![Binwalk](../../assets/Lupin/3.png)
 
-![Soru](../../assets/Lupin/4.png)
+![Flag](../../assets/Lupin/4.png)

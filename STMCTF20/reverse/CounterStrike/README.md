@@ -47,7 +47,7 @@ defauseTheBomb fonksiyonunun içerisinde ilk önce strcat fonksiyonu ile karşı
 
 ![strcmp](../../assets/CounterStrike/b.png)
 
-###Programın bizden istediği çözüm yolunda ise
+##### Programın bizden istediği çözüm yolunda ise
 Programa CounterStrike.exe val1 val2 val3 val4 val5 şeklinde parametreler vererek test ettiğimizde aslında strcmp val1 ile "iaminposition" stringini karşılaştırmaktadır. Eğer eşit değilse program çıkışa yönlendirilmektedir.    
 
 ![strcat](../../assets/CounterStrike/bb.png)

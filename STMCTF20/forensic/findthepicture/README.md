@@ -2,7 +2,7 @@
 
 Soru
 
-![Soru](../../assets/findthepic/0.png)
+![Soru](../assets/findthepic/0.png)
 
 Çözüm
 
