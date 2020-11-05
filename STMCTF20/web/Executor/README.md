@@ -29,11 +29,13 @@ Filterlerlanan karakterleri test etmek için denemeler yapmaya başladım. Dosya
 ![6](../../assets/Executor/6.png)
 
 **Ozaman ihtiyacımız olanlar:**
+
 1- Dosyayı okuyabilecek bir komut
 2- Boşluk karakteri
 3- flag.txt'yi belirtecek bir alias yada tamamlayıcı
 
 **Sırasıyla kullandığım çözümler:**
+
 1- Base64
 2- ${IFS}
 3- fl*
