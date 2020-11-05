@@ -1,8 +1,8 @@
 # CounterStrike !Bomb has been plant!
 
+Soru
 
-
-
+![Soru](../../assets/CounterStrike/0.png)
 
 Çözüm
 
