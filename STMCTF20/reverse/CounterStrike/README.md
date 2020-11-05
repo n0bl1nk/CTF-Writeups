@@ -1,10 +1,10 @@
 # CounterStrike !Bomb has been plant!
 
-Soru
+## Soru
 
 ![Soru](../../assets/CounterStrike/0.png)
 
-Çözüm
+## Çözüm
 
 Dosya 32 bitlik upx ile sıkıştırılmış olarak gözükmektedir.
 
@@ -48,29 +48,29 @@ defauseTheBomb fonksiyonunun içerisinde ilk önce strcat fonksiyonu ile karşı
 ![strcmp](../../assets/CounterStrike/b.png)
 
 ##### Programın bizden istediği çözüm yolunda ise
-Programa CounterStrike.exe val1 val2 val3 val4 val5 şeklinde parametreler vererek test ettiğimizde aslında strcmp val1 ile "iaminposition" stringini karşılaştırmaktadır. Eğer eşit değilse program çıkışa yönlendirilmektedir.    
+Programa **"CounterStrike.exe val1 val2 val3 val4 val5"** şeklinde parametreler vererek test ettiğimizde aslında strcmp val1 ile **"iaminposition"** stringini karşılaştırmaktadır. Eğer eşit değilse program çıkışa yönlendirilmektedir.    
 
 ![strcat](../../assets/CounterStrike/bb.png)
 
-Bu yüzden programı radare2 kullanıyorsanız "ood iaminposition val2 val3 val4 val5" şeklinde reload ediyoruz ve 0x004017b9 adresine breakpoint koyarak bu kısma kadar programı çalıştıralım. 
+Bu yüzden programı radare2 kullanıyorsanız **"ood iaminposition val2 val3 val4 val5"** şeklinde reload ediyoruz ve 0x004017b9 adresine breakpoint koyarak bu kısma kadar programı çalıştıralım. 
 
 Şuanda buradayız B side'a doğru rushluyoruz. 
 
 ![point](../../assets/CounterStrike/d.png)
 
 Tüm atoi fonksiyonları, karşılaştırma ve zıplama noktalarını aşağıdaki resimden kontrol edersek
-"CounterStrike.exe iaminposition val2 val3 val4 val5" şeklinde parametre vererek debug ettiğimizde sırasıyla
+*"CounterStrike.exe iaminposition val2 val3 val4 val5"* şeklinde parametre vererek debug ettiğimizde sırasıyla
 if val2 == 88  ;ise zıpla
 if val3 > 35 
 if val3 <= 44  ; 35 < val3 <= 44 ise zıpla
 if val4 > 98     
 if val4 <= 999 ; 98 < val4 <= 999 ise zıpla
 girdiğimiz değerlerin belirtilen aralıklarda kontrol edildiğini görüyoruz. 
-Biraz işaretlediğim alanları açıklamak gerekirse Atoi fonksiyonu char tipindeki bir sayı değerini integer tipine çevirmek için kullanılmaktadır. Yani parametre olarak girdiğimiz string "88" değerini integera çevirdikten sonra sonucu eax registerina hexadecimal olarak "58" şeklinde döndürecek. Ardından cmp ve je komutları ile eax registerindeki değer ile belirtilen aralıklar veya eşitlikler sağlanıyorsa zıplama gerçekleşecek.
+Biraz işaretlediğim alanları açıklamak gerekirse Atoi fonksiyonu char tipindeki bir sayı değerini integer tipine çevirmek için kullanılmaktadır. Yani parametre olarak girdiğimiz string **"88"** değerini integera çevirdikten sonra sonucu eax registerina hexadecimal olarak **"58"** şeklinde döndürecek. Ardından cmp ve je komutları ile eax registerindeki değer ile belirtilen aralıklar veya eşitlikler sağlanıyorsa zıplama gerçekleşecek.
 
 ![atoiler](../../assets/CounterStrike/f.png)
 
-Tekrardan radare2 için parametreleri "ood iaminposition 88 44 999 val5" komutuyla ayarlayalim ve başlatalım. Artık "breaktheCryptex" fonksiyonuna kadar ilerleyebiliyoruz. Program bize "tebrikler bombayı yok ettin sırada cryptex var" mesajını vermektedir.
+Tekrardan radare2 için parametreleri **"ood iaminposition 88 44 999 val5"** komutuyla ayarlayalim ve başlatalım. Artık "breaktheCryptex" fonksiyonuna kadar ilerleyebiliyoruz. Program bize "tebrikler bombayı yok ettin sırada cryptex var" mesajını vermektedir.
 
 ![msg1](../../assets/CounterStrike/14.png)
 
@@ -78,11 +78,11 @@ Bu fonksiyona breakpoint koyarak devam edelim ve disassembly edelim.
 
 ![breaktheCryptex](../../assets/CounterStrike/12.png)
 
-Fonksiyonu çalıştırdığımızda döngü içerisinde "yDOYH" stringiyle bir takım işlemler sonrasında stacke "Valve" yazıldığını görüyoruz. "breaktheCryptex" fonksiyonuna parametre olarak giden "0x0061f3f0" adresinde bu stringi görmekteyiz.
+Fonksiyonu çalıştırdığımızda döngü içerisinde **"yDOYH"** stringiyle bir takım işlemler sonrasında stacke **"Valve"** yazıldığını görüyoruz. "breaktheCryptex" fonksiyonuna parametre olarak giden "0x0061f3f0" adresinde bu stringi görmekteyiz.
 
 ![Valve](../../assets/CounterStrike/13.png)
 
-Cryptex fonksiyonundan çıktıntan sonra ilk strcmp çağrısına breakpoint koyuyoruz ve giden parametrelere baktığımızda programa verdiğimiz son parametre "val5" ile "Valve" stringinin eşitlik kontrolünün yapıldığını görmekteyiz.
+Cryptex fonksiyonundan çıktıntan sonra ilk strcmp çağrısına breakpoint koyuyoruz ve giden parametrelere baktığımızda programa verdiğimiz son parametre **"val5"** ile **"Valve"** stringinin eşitlik kontrolünün yapıldığını görmekteyiz.
 
 ![ValveVal5](../../assets/CounterStrike/15.png)
 

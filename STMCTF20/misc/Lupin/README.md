@@ -20,6 +20,8 @@ Rar dosyasını açtığımızda içerisinde 6 adet jpg çıkıyor. Bu resimlere
 
 ![Soru](../../assets/Lupin/Question/scheme.jpg)
 
+![Soru](../../assets/Lupin/Question/x5.jpg)
+
 Resimlere exif ile baktığımızda ilginç birşey görmüyoruz.
 
 "Binwalk *" ile tüm resimlere baktığımızda x5.jpg dosyasında bir jpeg daha gömülü olduğunu görüyoruz. 
@@ -30,4 +32,4 @@ Resimlere exif ile baktığımızda ilginç birşey görmüyoruz.
 
 ![Binwalk](../../assets/Lupin/3.png)
 
-![Flag](../../assets/Lupin/4.png)
+![Flag](../../assets/Lupin/4.jpg)
