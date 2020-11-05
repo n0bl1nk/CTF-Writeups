@@ -8,9 +8,7 @@
 
 Soruda bizden filterleri atlatarak sistemde komut çalıştırmamızı istemekteydi. 
 
-![1](../../assets/Executor/1.png)
-
-Bir post isteğimiz vardı burp ile açıp repeteare atıyoruz "auth&commnad" şeklinde iki adet parametremiz vardı. Auth parametresi default false olarak geliyordu. O şekilde bir istek attığımızda "Not Authenticated" şeklinde response almaktayız.  
+Burp ile isteği repeteare atıyoruz. Auth parametresi default false olarak geliyordu. False iken istek attığımızda "Not Authenticated" şeklinde response almaktayız.  
 
 ![2](../../assets/Executor/2.png)
 
