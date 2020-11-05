@@ -1,10 +1,10 @@
 # Luping
 
-Soru
+## Soru
 
 ![Soru](../../assets/Lupin/0.png)
 
-Çözüm
+## Çözüm
 
 Rar dosyasını açtığımızda içerisinde 6 adet jpg çıkıyor. Bu resimlere bakınca insan kör oluyor. 
 
